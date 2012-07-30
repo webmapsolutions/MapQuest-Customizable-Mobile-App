@@ -4,17 +4,20 @@
 <!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
+
+	<title></title>
+	
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width">
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title></title>
-	<meta name="description" content="">
-
-	<meta name="viewport" content="width=device-width">
+	
+	<link type="text/css" href="css/ui-lightness/jquery-ui-1.8.20.custom.css" rel="stylesheet" />
+	<link href="css/bootstrap.css" rel="stylesheet">
 	<link rel="stylesheet" href="css/style.css">
 
 	<script src="js/libs/modernizr-2.5.3.min.js"></script>
 
-	<link type="text/css" href="css/ui-lightness/jquery-ui-1.8.20.custom.css" rel="stylesheet" />
 </head>
 <body>
   <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
@@ -30,17 +33,74 @@
 		<div id="tabs">
 		
 			<ul>
-				<li><a href="#tabs-1">Nunc tincidunt</a></li>
-				<li><a href="#tabs-2">Proin dolor</a></li>
-				<li><a href="#tabs-3">Aenean lacinia</a></li>
-				<li><a href="#tabs-4">Nunc tincidunt</a></li>
-				<li><a href="#tabs-5">Proin dolor</a></li>
-				<li><a href="#tabs-6">Aenean lacinia</a></li>
+				<li><a href="#basic">Basic Layout</a></li>
+				<li><a href="#tabs-2">Results Layout</a></li>
+				<li><a href="#tabs-3">Info Bubble</a></li>
+				<li><a href="#tabs-4">Search Filters</a></li>
+				<li><a href="#tabs-5">Mobile</a></li>
+				<li><a href="#tabs-6">Advanced</a></li>
 			</ul>
 			
-			<div id="tabs-1">
-				<p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.</p>
+			<div id="basic">
+			
+				<div class="controls" class="span12">
+					<div class="span3">
+						<p>Results Position</p>
+						<div>
+							<input type="radio" name="basic_resultposition" id="basic_resultposition_1" value="left" checked />
+							<label for="basic_resultposition_1">Left</label>
+						</div>
+						<div>
+							<input type="radio" name="basic_resultposition" id="basic_resultposition_2" value="right" />
+							<label for="basic_resultposition_2">Right</label>
+						</div>
+						<div>
+							<input type="radio" name="basic_resultposition" id="basic_resultposition_3" value="bottom" />
+							<label for="basic_resultposition_3">Bottom</label>
+						</div>
+					</div>
+					<div class="span3">
+						<p>Map Ratio</p>
+						<label for="basic_mapratioamount" class="pull-left">Map:</label>
+						<input class="pull-left three_digit" type="text" name="basic_mapratioamount" id="basic_mapratioamount" />
+						<div class="clearfix"></div>
+						<div id="basic_mapratio"></div>
+					</div>
+					<div class="span3">
+						<p>Locator Size</p>
+						<label for="basic_locatorheightamount" class="pull-left">Height:</label>
+						<input class="pull-left three_digit" type="text" name="basic_locatorheightamount" id="basic_locatorheightamount" />
+						<div class="clearfix"></div>
+						<div id="basic_locatorheight"></div>
+						
+						<div class="clearfix">&nbsp;</div>
+						
+						<label for="basic_locatorwidthamount" class="pull-left">Width:</label>
+						<input class="pull-left three_digit" type="text" name="basic_locatorwidthamount" id="basic_locatorwidthamount" />
+						<div class="clearfix"></div>
+						<div id="basic_locatorwidth"></div>
+					</div>
+					<div class="span3">
+						<p>Rounded Corners</p>
+						<label for="basic_roundcornersamount" class="pull-left">Radius:</label>
+						<input class="pull-left three_digit" type="text" name="basic_roundcornersamount" id="basic_roundcornersamount" />
+						<div class="clearfix"></div>
+						<div id="basic_roundcorners"></div>
+					</div>
+				</div>
+				
+				<div class="clearfix"></div>
+				
+				<div class="demo">
+					<div class="header"></div>
+					<div class="details"></div>
+					<div class="map">&nbsp;</div>
+					<div class="footer"></div>
+				</div>
+				
 			</div>
+			
+			
 			<div id="tabs-2">
 				<p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</p>
 			</div>
@@ -79,7 +139,12 @@
 
 	<script>
 	$(function() {
-		$( "#tabs" ).tabs();
+		$('#tabs').tabs(
+			{
+				remote:true, 
+				ajaxOptions: {cache:false}, 
+				spinner:'Loading', fx: { opacity: 'toggle', duration:300 } 
+			});
 	});
 	</script>
 	
