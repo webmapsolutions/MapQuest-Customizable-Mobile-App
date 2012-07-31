@@ -63,6 +63,7 @@
 						<p>Map Ratio</p>
 						<label for="basic_mapratioamount" class="pull-left">Map:</label>
 						<input class="pull-left three_digit" type="text" name="basic_mapratioamount" id="basic_mapratioamount" />
+						<label for="basic_locatorheightamount" class="pull-left">%</label>
 						<div class="clearfix"></div>
 						<div id="basic_mapratio"></div>
 					</div>
@@ -70,6 +71,7 @@
 						<p>Locator Size</p>
 						<label for="basic_locatorheightamount" class="pull-left">Height:</label>
 						<input class="pull-left three_digit" type="text" name="basic_locatorheightamount" id="basic_locatorheightamount" />
+						<label for="basic_locatorheightamount" class="pull-left">px</label>
 						<div class="clearfix"></div>
 						<div id="basic_locatorheight"></div>
 						
@@ -77,6 +79,7 @@
 						
 						<label for="basic_locatorwidthamount" class="pull-left">Width:</label>
 						<input class="pull-left three_digit" type="text" name="basic_locatorwidthamount" id="basic_locatorwidthamount" />
+						<label for="basic_locatorheightamount" class="pull-left">px</label>
 						<div class="clearfix"></div>
 						<div id="basic_locatorwidth"></div>
 					</div>
@@ -84,6 +87,7 @@
 						<p>Rounded Corners</p>
 						<label for="basic_roundcornersamount" class="pull-left">Radius:</label>
 						<input class="pull-left three_digit" type="text" name="basic_roundcornersamount" id="basic_roundcornersamount" />
+						<label for="basic_locatorheightamount" class="pull-left">px</label>
 						<div class="clearfix"></div>
 						<div id="basic_roundcorners"></div>
 					</div>
@@ -92,10 +96,17 @@
 				<div class="clearfix"></div>
 				
 				<div class="demo">
-					<div class="header"></div>
-					<div class="details"></div>
-					<div class="map">&nbsp;</div>
-					<div class="footer"></div>
+					<div class="header">
+						<p>
+							<input type="checkbox" id="basic_samplecheck1" /><label for="basic_samplecheck1">Filter 1</label>&nbsp;&nbsp;
+							<input type="checkbox" id="basic_samplecheck2" /><label for="basic_samplecheck2">Filter 2</label>&nbsp;&nbsp;
+							<input type="text" />&nbsp;&nbsp;
+							<input type="button" value="Search" />
+						</p>
+					</div>
+					<div class="details"><p>Listings</p></div>
+					<div class="map"><div class="map_container"><div id="basic_demomap"></div></div></div>
+					<div class="footer"><p>Customizable Area</p></div>
 				</div>
 				
 			</div>
@@ -136,6 +147,7 @@
 	<script src="js/plugins.js"></script>
 	<script src="js/script.js"></script>
 	<script type="text/javascript" src="js/libs/jquery-ui-1.8.20.custom.min.js"></script>
+	<script src="http://www.mapquestapi.com/sdk/js/v7.0.s/mqa.toolkit.js?key=Fmjtd%7Cluua2duzl9%2C2n%3Do5-hrysg"></script>
 
 	<script>
 	$(function() {

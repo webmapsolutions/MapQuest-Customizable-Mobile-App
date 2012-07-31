@@ -5,6 +5,7 @@ $(document).ready(function(){
 	$("[name=basic_resultposition]").change(function(){
 		var pos = $("[name=basic_resultposition]:checked").val();
 		updateDetailsPosition(pos);
+		window.map.resize();
 	});
 	function updateDetailsPosition(pos)
 	{
@@ -50,6 +51,7 @@ $(document).ready(function(){
         slide: function (event, ui) {
             $("#basic_mapratioamount").val(ui.value);
 			basicUpdateMapRatio(ui.value);
+			window.map.resize();
         }
     });
 	basicUpdateMapRatio($("#basic_mapratio").slider("value"));
@@ -77,7 +79,6 @@ $(document).ready(function(){
 				$(".details", "#basic > .demo").css("width", "100%");
 				break;
 		}
-		
 	}
 	
 	
@@ -91,6 +92,7 @@ $(document).ready(function(){
         slide: function (event, ui) {
             $("#basic_locatorheightamount").val(ui.value);
 			basicUpdateMapHeight(ui.value);
+			window.map.resize();
         }
     });
 	basicUpdateMapHeight($("#basic_locatorheight").slider("value"));
@@ -98,6 +100,7 @@ $(document).ready(function(){
 	$("#basic_locatorheightamount").change(function(){
 		$("#basic_locatorheight").slider("value", $("#basic_locatorheightamount").val());
 		basicUpdateMapHeight($("#basic_locatorheightamount").val());
+		window.map.resize();
 	});
 	function basicUpdateMapHeight(val)
 	{
@@ -116,6 +119,7 @@ $(document).ready(function(){
         slide: function (event, ui) {
             $("#basic_locatorwidthamount").val(ui.value);
 			basicUpdateMapWidth(ui.value);
+			window.map.resize();
         }
     });
 	basicUpdateMapWidth($("#basic_locatorwidth").slider("value"));
@@ -157,6 +161,66 @@ $(document).ready(function(){
 		$(".footer", "#basic > .demo").css("border-bottom-left-radius", val + "px");
 		$(".footer", "#basic > .demo").css("border-bottom-right-radius", val + "px");
 	}
+	
+	
+	
+	// DEMO MAP
+	MQA.EventUtil.observe(window, 'load', function() {
+ 
+		var options={
+			elt:document.getElementById('basic_demomap'),       /*ID of element on the page where you want the map added*/ 
+			zoom:10,                                  /*initial zoom level of the map*/ 
+			latLng:{lat:39.743943, lng:-105.020089},  /*center of map in latitude/longitude */ 
+			mtype:'map',                              /*map type (map)*/ 
+			bestFitMargin:0,                          /*margin offset from the map viewport when applying a bestfit on shapes*/ 
+			zoomOnDoubleClick:true                    /*zoom in when double-clicking on map*/ 
+		};
+
+		/*Construct an instance of MQA.TileMap with the options object*/ 
+		map = new MQA.TileMap(options);
+		
+		map.resize = 
+				function()
+				{
+					// update the mapquest map div to resize the map
+					$("#basic_demomap", "#basic > .demo").css("width", $(".map", "#basic > .demo").css("width")).css("height", $(".map", "#basic > .demo").css("height"));
+					$("#basic_demomap div:first", "#basic > .demo").css("width", $(".map", "#basic > .demo").css("width")).css("height", $(".map", "#basic > .demo").css("height"));
+					window.map.setSize();
+				}
+				
+		MQA.withModule('largezoom','traffictoggle','viewoptions','geolocationcontrol','insetmapcontrol','mousewheel', function() {
+		
+			map.addControl(
+			  new MQA.LargeZoom(),
+			  new MQA.MapCornerPlacement(MQA.MapCorner.TOP_LEFT, new MQA.Size(5,5))
+			);
+
+			map.addControl(new MQA.TrafficToggle());
+
+			map.addControl(new MQA.ViewOptions());
+
+			map.addControl(
+			  new MQA.GeolocationControl(),
+			  new MQA.MapCornerPlacement(MQA.MapCorner.TOP_RIGHT, new MQA.Size(10,50))
+			);
+
+			/*Inset Map Control options*/ 
+			var options={
+			  size:{width:150, height:125},
+			  zoom:3,
+			  mapType:'map',
+			  minimized:true };
+
+			map.addControl(
+			  new MQA.InsetMapControl(options),
+			  new MQA.MapCornerPlacement(MQA.MapCorner.BOTTOM_RIGHT)
+			);
+
+			map.enableMouseWheelZoom();
+		});
+		
+    });
+	
 	
 });
 
