@@ -186,7 +186,9 @@ $(document).ready(function(){
 					$("#basic_demomap", "#basic > .demo").css("width", $(".map", "#basic > .demo").css("width")).css("height", $(".map", "#basic > .demo").css("height"));
 					$("#basic_demomap div:first", "#basic > .demo").css("width", $(".map", "#basic > .demo").css("width")).css("height", $(".map", "#basic > .demo").css("height"));
 					window.map.setSize();
+					map.bestFit();
 				}
+				
 				
 		MQA.withModule('largezoom','traffictoggle','viewoptions','geolocationcontrol','insetmapcontrol','mousewheel', function() {
 		
