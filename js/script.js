@@ -19,21 +19,21 @@ $(document).ready(function(){
 			case "left":
 				$(".details", "#basic > .demo").css("left", "0px");
 				$(".details", "#basic > .demo").addClass("dockleft");
-				$(".map", "#basic > .demo").css("bottom", $(".footer", "#basic > .demo").height()+"px").width("100%");
+				$(".map", "#basic > .demo").width("100%");
 				basicUpdateMapRatio($("#basic_mapratio").slider("value"));
 			break;
 			
 			case "right":
 				$(".details", "#basic > .demo").css("right", "0px");
 				$(".details", "#basic > .demo").addClass("dockright");
-				$(".map", "#basic > .demo").css("bottom", $(".footer", "#basic > .demo").height()+"px").width("100%");
+				$(".map", "#basic > .demo").width("100%");
 				basicUpdateMapRatio($("#basic_mapratio").slider("value"));
 			break;
 			
 			case "bottom":
 				$(".map", "#basic > .demo").css("left", "0px").width("100%");
 				$(".details", "#basic > .demo").addClass("dockbottom");
-				$(".map", "#basic > .demo").css("bottom", ($(".footer", "#basic > .demo").height() + $(".details", "#basic > .demo").height())+"px").width("100%");
+				$(".map", "#basic > .demo").width("100%");
 				basicUpdateMapRatio($("#basic_mapratio").slider("value"));
 			break;
 		}
@@ -80,6 +80,32 @@ $(document).ready(function(){
 				break;
 		}
 	}
+	
+	
+	
+	// SIDEBAR OPACITY SLIDER
+    $("#basic_sidebaropacity").slider({
+        orientation: "horizontal",
+        range: "min",
+        min: 0,
+        max: 100,
+        value: 75,
+        slide: function (event, ui) {
+            $("#basic_sidebaropacityamount").val(ui.value);
+			basicUpdateSidebarOpacity(ui.value);
+        }
+    });
+	basicUpdateSidebarOpacity($("#basic_locatorheight").slider("value"));
+    $("#basic_sidebaropacityamount").val($("#basic_sidebaropacity").slider("value"));
+	$("#basic_sidebaropacityamount").change(function(){
+		$("#basic_locatorheight").slider("value", $("#basic_sidebaropacityamount").val());
+		basicUpdateSidebarOpacity($("#basic_sidebaropacityamount").val());
+	});
+	function basicUpdateSidebarOpacity(val)
+	{
+		$(".details", "#basic").css('opacity', val/100);
+	}
+	
 	
 	
 	// LOCATOR HEIGHT SLIDER
@@ -224,6 +250,96 @@ $(document).ready(function(){
     });
 	
 	
+	$('#test_data').click(function(){
+		var rows = new Array();
+		rows[0] =
+				[
+					{"name" : "address", "value" : "100 s 250 e" },
+					{"name" : "city", "value" : "Salt Lake City" },
+					{"name" : "state", "value" : "UT" },
+					{"country" : "address", "value" : "US" },
+					{"name" : "address", "value" : "84112" }
+				];
+				
+		// http://platform.beta.mapquest.com/search/v2/get-table-data?outFormat=json
+		// &tableName=mqap.37481_LocatorOne&shapeFormat=simple&currentPage=1&pageSize=50
+		// &key=Lmjtd%7Cluua2008nl%2C2a%3Do5-lzrg9&_=1344266797046
+		
+		// USES V2
+		
+		$.ajax({
+			url: 'http://platform.beta.mapquest.com/search/v2/get-table-data?key=Lmjtd%7Cluua2008nl%2C2a%3Do5-lzrg9',
+			dataType: 'jsonp',
+			data: {
+				outFormat: 'json',
+				tableName: 'mqap.37481_LocatorOne',
+				shapeFormat: 'simple',
+				currentPage: 1,
+				pageSize: 50,
+				hostedData: 'MQA.MQ_37481_test'
+			},
+			success: json_callback
+		});
+		
+		/*
+		// USES V1
+		$.ajax({
+			url: 'http://platform.beta.mapquest.com/search/v1/search?key=Lmjtd%7Cluua2008nl%2C2a%3Do5-lzrg9',
+			dataType: 'jsonp',
+			//crossDomain: true,
+			data: {
+				//clientId: '37481',
+				//password: 'nL3HB6xY',
+				//tableName: 'mqap.MQ_37481_test',
+				//shapeFormat: 'raw'
+				hostedData: 'MQA.MQ_37481_test'
+			},
+			success: json_callback
+		});
+		*/
+/*
+		$.ajax({
+			url: 'http://platform.beta.mapquest.com/search/v2/search?key=Lmjtd%7Cluua2008nl%2C2a%3Do5-lzrg9&hostedData=mqap.MQ_37481_test&tableName=mqap.MQ_37481_test&callback=renderExampleTwoResults',
+			dataType: 'json',
+			data: {
+					clientId: '37481',
+					password: 'nL3HB6xY',
+					tableName: 'mqap.MQ_37481_test',
+					shapeFormat: 'raw',
+					hostedDataList: [
+					{
+						name:"MQ_37481_test",
+					}
+					]
+				},
+			success: json_callback
+		});
+		*/
+	});
+	$('#test_upload').click(function(){
+		
+		$.ajax({
+			
+			url: 'http://platform.beta.mapquest.com/upload/v1/upload?key=Lmjtd%7Cluua2008nl%2C2a%3Do5-lzrg9',
+			dataType: 'jsonp',
+			//crossDomain: true,
+			data: {
+				clientId: '37481',
+				password: 'nL3HB6xY',
+				tableName: 'mqap.MQ_37481_test',
+				hostedData: 'MQA.MQ_37481_test'
+			},
+			success: json_callback
+		});
+	});
+	function json_callback(data)
+	{
+		log(data);
+	}
+	function renderExampleTwoResults(data)
+	{
+		log(data);
+	}
 });
 
 
