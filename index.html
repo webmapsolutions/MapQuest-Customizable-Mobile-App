@@ -14,6 +14,7 @@
 	
 	<link type="text/css" href="css/ui-lightness/jquery-ui-1.8.20.custom.css" rel="stylesheet" />
 	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="colorpicker/css/colorpicker.css" rel="stylesheet">
 	<link rel="stylesheet" href="css/style.css">
 
 	<script src="js/libs/modernizr-2.5.3.min.js"></script>
@@ -43,7 +44,7 @@
 			<div id="basic">
 			
 				<div class="controls" class="span12">
-					<div class="span3">
+					<div class="span2">
 						<p>Results Position</p>
 						<div>
 							<input type="radio" name="basic_resultposition" id="basic_resultposition_1" value="left" checked />
@@ -57,13 +58,8 @@
 							<input type="radio" name="basic_resultposition" id="basic_resultposition_3" value="bottom" />
 							<label for="basic_resultposition_3">Bottom</label>
 						</div>
-						<p>Opacity</p>
-						<input class="pull-left three_digit" type="text" name="basic_sidebaropacityamount" id="basic_sidebaropacityamount" />
-						<label for="basic_sidebaropacityamount" class="pull-left">%</label>
-						<div class="clearfix"></div>
-						<div id="basic_sidebaropacity"></div>
 					</div>
-					<div class="span3">
+					<div class="span2">
 						<p>Map Ratio</p>
 						<label for="basic_mapratioamount" class="pull-left">Map:</label>
 						<input class="pull-left three_digit" type="text" name="basic_mapratioamount" id="basic_mapratioamount" />
@@ -71,7 +67,7 @@
 						<div class="clearfix"></div>
 						<div id="basic_mapratio"></div>
 					</div>
-					<div class="span3">
+					<div class="span2">
 						<p>Locator Size</p>
 						<label for="basic_locatorheightamount" class="pull-left">Height:</label>
 						<input class="pull-left three_digit" type="text" name="basic_locatorheightamount" id="basic_locatorheightamount" />
@@ -87,13 +83,27 @@
 						<div class="clearfix"></div>
 						<div id="basic_locatorwidth"></div>
 					</div>
-					<div class="span3">
+					<div class="span2">
 						<p>Rounded Corners</p>
 						<label for="basic_roundcornersamount" class="pull-left">Radius:</label>
 						<input class="pull-left three_digit" type="text" name="basic_roundcornersamount" id="basic_roundcornersamount" />
 						<label for="basic_roundcornersamount" class="pull-left">px</label>
 						<div class="clearfix"></div>
 						<div id="basic_roundcorners"></div>
+					</div>
+					<div class="span2">
+						<p>Sidebar Opacity</p>
+						<input class="pull-left three_digit" type="text" name="basic_sidebaropacityamount" id="basic_sidebaropacityamount" />
+						<label for="basic_sidebaropacityamount" class="pull-left">%</label>
+						<div class="clearfix"></div>
+						<div id="basic_sidebaropacity"></div>
+					</div>
+					<div class="span2">
+						<p>Sidebar Color</p>
+						<div id="basic_sidebarcolorpicker" class="input-append color" data-color-format="hex">
+							<input type="text" class="span1 hidden" id="basic_sidebarcolor" name="basic_sidebarcolor" >
+							<span class="add-on"><i></i></span>
+						</div>
 					</div>
 				</div>
 				
@@ -139,13 +149,6 @@
 	
 	
 	<footer>
-		<button id="test6-run" onclick="doBaseSearchClick();">
-					Run
-				</button>
-		<button id="test_data">get test data</button>
-		<button id="test_upload">test upload</button>
-		
-
 	</footer>
 
 
@@ -156,6 +159,7 @@
 	<script src="http://www.mapquestapi.com/sdk/js/v7.0.s/mqa.toolkit.js?key=Lmjtd%7Cluua2008nl%2C2a%3Do5-lzrg9"></script>
 	<script src="js/plugins.js"></script>
 	<script src="js/script.js"></script>
+	<script src="colorpicker/js/bootstrap-colorpicker.js"></script>
 	<script src="js/basic_search.js"></script>
 	<script>
 	$(function() {
