@@ -108,7 +108,7 @@ td { vertical-align: top; }
 #tabs{min-height:500px; width:1065px; margin-left:auto; margin-right:auto;}
 
 #basic .demo_border{overflow:hidden;}
-#basic .demo{background:#eee; border:1px solid #aaa; margin:40px; margin-left: auto; margin-right: auto; position:relative;}
+#basic .demo{background:#eee; border:1px solid #aaa; margin:0px; margin-left: auto; margin-right: auto; position:relative;}
 #basic .demo .header{background:#cdd; position:absolute; height:40px; left:0px; right:0px; overflow:hidden;}
 #basic .demo .header p{text-align:right; display:block; min-width:400px; padding:4px; padding-right:25px;}
 #basic .demo .details{position:absolute; z-index:10;}
@@ -123,8 +123,11 @@ td { vertical-align: top; }
 #basic .demo .details.dockright{right:0px; top: 0px; bottom: 0px;}
 #basic .demo .details.dockbottom{height:100px; left:0px; right:0px; bottom:0px;}
 
+.two_digit{width:17px;}
 .three_digit{width:26px;}
 label{margin-left:6px; margin-right:6px;}
+.indent{margin-left:20px;}
+
 
 /*
  * jQuery UI Slider 1.8.16

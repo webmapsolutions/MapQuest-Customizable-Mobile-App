@@ -43,7 +43,7 @@
 			
 			<div id="basic">
 			
-				<div class="controls" class="span12">
+				<div class="controls">
 					<div class="span2">
 						<p>Results Position</p>
 						<div>
@@ -97,13 +97,32 @@
 						<label for="basic_sidebaropacityamount" class="pull-left">%</label>
 						<div class="clearfix"></div>
 						<div id="basic_sidebaropacity"></div>
-					</div>
-					<div class="span2">
+						
 						<p>Sidebar Color</p>
 						<div id="basic_sidebarcolorpicker" class="input-append color" data-color-format="hex">
-							<input type="text" class="span1 hidden" id="basic_sidebarcolor" name="basic_sidebarcolor" >
+							<input type="text" class="span1" id="basic_sidebarcolor" name="basic_sidebarcolor" readonly />
 							<span class="add-on"><i></i></span>
 						</div>
+					</div>
+					<div class="span2">
+						<p>Sidebar Shadow</p>
+						
+						<label for="basic_shadowhoffsetamount" class="span2">horizontal offset</label>
+						<div id="basic_shadowhoffset" class="span1"></div>
+						<input type="text" class="three_digit indent" name="basic_shadowhoffsetamount" id="basic_shadowhoffsetamount" />
+						
+						<label for="basic_shadowvoffsetamount" class="span2">vertical offset</label>
+						<div id="basic_shadowvoffset" class="span1"></div>
+						<input class="three_digit indent" type="text" name="basic_shadowvoffsetamount" id="basic_shadowvoffsetamount" />
+						
+						<label for="basic_shadowbluramount" class="span2">blur</label>
+						<div id="basic_shadowblur" class="span1"></div>
+						<input class="three_digit indent" type="text" name="basic_shadowbluramount" id="basic_shadowbluramount" />
+						
+						<label for="basic_shadowspreadamount" class="span2">spread</label>
+						<div id="basic_shadowspread" class="span1"></div>
+						<input class="three_digit indent" type="text" name="basic_shadowspreadamount" id="basic_shadowspreadamount" />
+						
 					</div>
 				</div>
 				
